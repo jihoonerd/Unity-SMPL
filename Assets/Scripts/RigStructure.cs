@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SMPLRig
 {
+    public GameObject Root { get; set; }
+
     public GameObject Pelvis { get; set; }
     
     public GameObject LHip { get; set; }
@@ -35,35 +37,40 @@ public class SMPLRig
 
     public SMPLRig(GameObject model)
     {
-        Pelvis = model.transform.Find("m_avg_root/m_avg_Pelvis").gameObject;
-        LHip = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_L_Hip").gameObject;
-        LKnee = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_L_Hip/m_avg_L_Knee").gameObject;
-        LAnkle = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_L_Hip/m_avg_L_Knee/m_avg_L_Ankle").gameObject;
-        LFoot = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_L_Hip/m_avg_L_Knee/m_avg_L_Ankle/m_avg_L_Foot").gameObject;
-        RHip = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_R_Hip").gameObject;
-        RKnee = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_R_Hip/m_avg_R_Knee").gameObject;
-        RAnkle = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_R_Hip/m_avg_R_Knee/m_avg_R_Ankle").gameObject;
-        RFoot = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_R_Hip/m_avg_R_Knee/m_avg_R_Ankle/m_avg_R_Foot").gameObject;
-        Spine1 = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1").gameObject;
-        Spine2 = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2").gameObject;
-        Spine3 = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3").gameObject;
-        LCollar = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_L_Collar").gameObject;
-        LShoulder = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_L_Collar/m_avg_L_Shoulder").gameObject;
-        LElbow = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_L_Collar/m_avg_L_Shoulder/m_avg_L_Elbow").gameObject;
-        LWrist = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_L_Collar/m_avg_L_Shoulder/m_avg_L_Elbow/m_avg_L_Wrist").gameObject;
-        LHand = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_L_Collar/m_avg_L_Shoulder/m_avg_L_Elbow/m_avg_L_Wrist/m_avg_L_Hand").gameObject;
-        Neck = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_Neck").gameObject;
-        Head = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_Neck/m_avg_Head").gameObject;
-        RCollar = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_R_Collar").gameObject;
-        RShoulder = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_R_Collar/m_avg_R_Shoulder").gameObject;
-        RElbow = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_R_Collar/m_avg_R_Shoulder/m_avg_R_Elbow").gameObject;
-        RWrist = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_R_Collar/m_avg_R_Shoulder/m_avg_R_Elbow/m_avg_R_Wrist").gameObject;
-        RHand = model.transform.Find("m_avg_root/m_avg_Pelvis/m_avg_Spine1/m_avg_Spine2/m_avg_Spine3/m_avg_R_Collar/m_avg_R_Shoulder/m_avg_R_Elbow/m_avg_R_Wrist/m_avg_R_Hand").gameObject;
+        Root = model.transform.Find("SMPL-male/root").gameObject;
+        Pelvis = model.transform.Find("SMPL-male/root/Pelvis").gameObject;
+        LHip = model.transform.Find("SMPL-male/root/Pelvis/L_Hip").gameObject;
+        LKnee = model.transform.Find("SMPL-male/root/Pelvis/L_Hip/L_Knee").gameObject;
+        LAnkle = model.transform.Find("SMPL-male/root/Pelvis/L_Hip/L_Knee/L_Ankle").gameObject;
+        LFoot = model.transform.Find("SMPL-male/root/Pelvis/L_Hip/L_Knee/L_Ankle/L_Foot").gameObject;
+        RHip = model.transform.Find("SMPL-male/root/Pelvis/R_Hip").gameObject;
+        RKnee = model.transform.Find("SMPL-male/root/Pelvis/R_Hip/R_Knee").gameObject;
+        RAnkle = model.transform.Find("SMPL-male/root/Pelvis/R_Hip/R_Knee/R_Ankle").gameObject;
+        RFoot = model.transform.Find("SMPL-male/root/Pelvis/R_Hip/R_Knee/R_Ankle/R_Foot").gameObject;
+        Spine1 = model.transform.Find("SMPL-male/root/Pelvis/Spine1").gameObject;
+        Spine2 = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2").gameObject;
+        Spine3 = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3").gameObject;
+        LCollar = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/L_Collar").gameObject;
+        LShoulder = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/L_Collar/L_Shoulder").gameObject;
+        LElbow = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/L_Collar/L_Shoulder/L_Elbow").gameObject;
+        LWrist = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/L_Collar/L_Shoulder/L_Elbow/L_Wrist").gameObject;
+        LHand = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/L_Collar/L_Shoulder/L_Elbow/L_Wrist/L_Hand").gameObject;
+        Neck = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/Neck").gameObject;
+        Head = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/Neck/Head").gameObject;
+        RCollar = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/R_Collar").gameObject;
+        RShoulder = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/R_Collar/R_Shoulder").gameObject;
+        RElbow = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/R_Collar/R_Shoulder/R_Elbow").gameObject;
+        RWrist = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/R_Collar/R_Shoulder/R_Elbow/R_Wrist").gameObject;
+        RHand = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/R_Collar/R_Shoulder/R_Elbow/R_Wrist/R_Hand").gameObject;
     }
 
-    public void SetPose(float[][] translation, float[][][] rotationQuat, int frameInd){
-        Vector3 rootPos = new Vector3(translation[frameInd][0], translation[frameInd][1], translation[frameInd][2]);
-        Pelvis.transform.position = rootPos;
+    public void SetPose(float[][] translation, float[][][] rotationQuat, int frameInd, bool identityRotEndJoints){
+
+        // Compensate Convention to make it match with Unity
+        Root.transform.eulerAngles = new Vector3(-90, 0, 0);
+
+        Vector3 pelvisPos = new Vector3(translation[frameInd][0], translation[frameInd][1], translation[frameInd][2]);
+        Pelvis.transform.position = pelvisPos;
 
         float[][] quaternionData = rotationQuat[frameInd];  // rotationQuat[frameInd] -> (24, 4)
         Pelvis.transform.localRotation = SetLocalQuaternion(quaternionData[0]);
@@ -90,11 +97,28 @@ public class SMPLRig
         RElbow.transform.localRotation = SetLocalQuaternion(quaternionData[19]);
         RWrist.transform.localRotation = SetLocalQuaternion(quaternionData[21]);
         RHand.transform.localRotation = SetLocalQuaternion(quaternionData[23]);
+
+        if (identityRotEndJoints) {
+            LHand.transform.localRotation = Quaternion.identity;
+            RHand.transform.localRotation = Quaternion.identity;
+            LFoot.transform.localRotation = Quaternion.identity;
+            RFoot.transform.localRotation = Quaternion.identity;
+        }
     }
 
     Quaternion SetLocalQuaternion(float[] localQuat){
         // Since Unity takes quaternion in the form of (x, y, z, w), we need to convert the quaternion to the form of (w, x, y, z)
         Quaternion quat = new Quaternion(localQuat[1], localQuat[2], localQuat[3], localQuat[0]);
+        quat = ConvertToUnity(quat);
         return quat;
     }
+
+    Quaternion ConvertToUnity(Quaternion input) {
+    return new Quaternion(
+          -input.x,
+          input.y,
+          input.z,
+          -input.w
+    );
+}
 }

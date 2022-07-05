@@ -8,6 +8,7 @@ public class MotionController : MonoBehaviour
     public TextAsset jsonFile;
     public GameObject skeleton;
     public float fps = 20.0f;
+    public bool identityRotEndJoints;
     int motionLength;
     MotionData motionData;
     string label;
@@ -39,7 +40,7 @@ public class MotionController : MonoBehaviour
         for (int frameInd = 0 ; frameInd < motionLength; frameInd++)
         {
             yield return new WaitForSeconds(1/fps);
-            smplRig.SetPose(translation, rotationQuat, frameInd);
+            smplRig.SetPose(translation, rotationQuat, frameInd, identityRotEndJoints);
         }
     }
 
