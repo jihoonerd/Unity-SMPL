@@ -19,6 +19,7 @@ public class MotionController : MonoBehaviour
     GameObject baseModel;
 
     SMPLRig smplRig;    
+    Vector3 basePos;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class MotionController : MonoBehaviour
         rotationQuat = motionData.rotation_quat;
         quaternionOrder = motionData.quaternion_order;
         guidanceScale = motionData.guidance_scale;
+        basePos = this.transform.position;
 
         smplRig = new SMPLRig(Instantiate(skeleton));
         StartCoroutine(RunMotion());
@@ -36,11 +38,12 @@ public class MotionController : MonoBehaviour
 
     IEnumerator RunMotion()
     {
+        yield return new WaitForSeconds(0.5f);
         // yield return new WaitForSeconds(1.0f);
         for (int frameInd = 0 ; frameInd < motionLength; frameInd++)
         {
             yield return new WaitForSeconds(1/fps);
-            smplRig.SetPose(translation, rotationQuat, frameInd, identityRotEndJoints);
+            smplRig.SetPose(translation, rotationQuat, frameInd, identityRotEndJoints, basePos);
         }
     }
 
