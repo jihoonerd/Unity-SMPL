@@ -52,7 +52,7 @@ public class CheckerBoard : MonoBehaviour
         float value = 0.5f;
         if (vX == vY)
         {
-            value = 1.0f;
+            value = 0.1f;
         }
         return new Color(value, value, value, 1.0f);
 
