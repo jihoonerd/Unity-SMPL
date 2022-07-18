@@ -69,7 +69,7 @@ public class SMPLRig
         // Compensate Convention to make it match with Unity
         Root.transform.eulerAngles = new Vector3(-90, 0, 0);
 
-        Vector3 pelvisPos = new Vector3(translation[frameInd][0], translation[frameInd][1], translation[frameInd][2]);
+        Vector3 pelvisPos = new Vector3(-translation[frameInd][0], translation[frameInd][2], -translation[frameInd][1]);
         Pelvis.transform.position = pelvisPos + basePos;
 
         float[][] quaternionData = rotationQuat[frameInd];  // rotationQuat[frameInd] -> (24, 4)
