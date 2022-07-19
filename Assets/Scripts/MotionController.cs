@@ -9,7 +9,7 @@ public class MotionController : MonoBehaviour
     public GameObject skeleton;
     public float fps = 20.0f;
     public bool identityRotEndJoints;
-    public Color avatarColor = new Color(0.35f, 0.75f, 1.0f, 1.0f);
+    public Color avatarColor = new Color(0.66f, 0.85f, 1.0f, 1.0f);
     int motionLength;
     MotionData motionData;
     string label;
