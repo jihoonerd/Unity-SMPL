@@ -9,6 +9,7 @@ public class MotionController : MonoBehaviour
     public GameObject skeleton;
     public float fps = 20.0f;
     public bool identityRotEndJoints;
+    public Color avatarColor = new Color(0.35f, 0.75f, 1.0f, 1.0f);
     int motionLength;
     MotionData motionData;
     string label;
@@ -33,6 +34,7 @@ public class MotionController : MonoBehaviour
         basePos = this.transform.position;
 
         smplRig = new SMPLRig(Instantiate(skeleton));
+        smplRig.avatar.GetComponentInChildren<SkinnedMeshRenderer>().material.SetColor("_Color", avatarColor);                
         StartCoroutine(RunMotion());
     }
 

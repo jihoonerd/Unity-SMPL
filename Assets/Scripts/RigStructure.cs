@@ -35,8 +35,11 @@ public class SMPLRig
     public GameObject RWrist { get; set; }
     public GameObject RHand { get; set; }
 
+    public GameObject avatar;
+
     public SMPLRig(GameObject model)
     {
+        avatar = model;
         Root = model.transform.Find("SMPL-male/root").gameObject;
         Pelvis = model.transform.Find("SMPL-male/root/Pelvis").gameObject;
         LHip = model.transform.Find("SMPL-male/root/Pelvis/L_Hip").gameObject;
@@ -63,7 +66,7 @@ public class SMPLRig
         RWrist = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/R_Collar/R_Shoulder/R_Elbow/R_Wrist").gameObject;
         RHand = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/R_Collar/R_Shoulder/R_Elbow/R_Wrist/R_Hand").gameObject;
     }
-
+    
     public void SetPose(float[][] translation, float[][][] rotationQuat, int frameInd, bool identityRotEndJoints, Vector3 basePos){
 
         // Compensate Convention to make it match with Unity
