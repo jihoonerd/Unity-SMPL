@@ -10,7 +10,7 @@ public class CheckerBoard : MonoBehaviour
     MeshRenderer meshRenderer;
     Material material;
     Texture2D texture;
-    [SerializeField] float width = 10.0f;
+    [SerializeField] float width = 3.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +49,11 @@ public class CheckerBoard : MonoBehaviour
         if (valueY < 0.5f)
             vY = 0;
         
-        float value = 0.5f;
+        float value = 0.0f;
+        
         if (vX == vY)
         {
-            value = 0.1f;
+            value = 1.0f;
         }
         return new Color(value, value, value, 1.0f);
 
