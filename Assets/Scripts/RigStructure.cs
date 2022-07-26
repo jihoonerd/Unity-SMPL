@@ -67,10 +67,10 @@ public class SMPLRig
         RHand = model.transform.Find("SMPL-male/root/Pelvis/Spine1/Spine2/Spine3/R_Collar/R_Shoulder/R_Elbow/R_Wrist/R_Hand").gameObject;
     }
     
-    public void SetPose(float[][] translation, float[][][] rotationQuat, int frameInd, bool identityRotEndJoints, Vector3 basePos){
+    public void SetPose(float[][] translation, float[][][] rotationQuat, int frameInd, bool identityRotEndJoints, Vector3 basePos, Vector3 baseRot){
 
         // Compensate Convention to make it match with Unity
-        Root.transform.eulerAngles = new Vector3(-90, 0, 0);
+        Root.transform.eulerAngles = new Vector3(-90, 0, 0) + baseRot;
 
         Vector3 pelvisPos = new Vector3(-translation[frameInd][0], translation[frameInd][2], -translation[frameInd][1]);
         Pelvis.transform.position = pelvisPos + basePos;

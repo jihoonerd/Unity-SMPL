@@ -21,6 +21,7 @@ public class MotionController : MonoBehaviour
 
     SMPLRig smplRig;    
     Vector3 basePos;
+    Vector3 baseRot;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class MotionController : MonoBehaviour
         quaternionOrder = motionData.quaternion_order;
         guidanceScale = motionData.guidance_scale;
         basePos = this.transform.position;
+        baseRot = this.transform.eulerAngles;
 
         smplRig = new SMPLRig(Instantiate(skeleton));
         smplRig.avatar.GetComponentInChildren<SkinnedMeshRenderer>().material.SetColor("_Color", avatarColor);
@@ -45,7 +47,7 @@ public class MotionController : MonoBehaviour
         for (int frameInd = 0 ; frameInd < motionLength; frameInd++)
         {
             yield return new WaitForSeconds(1/fps);
-            smplRig.SetPose(translation, rotationQuat, frameInd, identityRotEndJoints, basePos);
+            smplRig.SetPose(translation, rotationQuat, frameInd, identityRotEndJoints, basePos, baseRot);
         }
     }
 

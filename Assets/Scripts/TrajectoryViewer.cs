@@ -24,6 +24,7 @@ public class TrajectoryViewer : MonoBehaviour
 
     SMPLRig smplRig;    
     Vector3 basePos;
+    Vector3 baseRot;
     Vector3 adjustPos;
 
     // Start is called before the first frame update
@@ -37,6 +38,7 @@ public class TrajectoryViewer : MonoBehaviour
         quaternionOrder = motionData.quaternion_order;
         guidanceScale = motionData.guidance_scale;
         basePos = this.transform.position;
+        baseRot = this.transform.eulerAngles;
 
         for (int i = 0; i < motionLength; i+=interval)
         {
@@ -46,11 +48,11 @@ public class TrajectoryViewer : MonoBehaviour
             if (adjustTranslation)
             {
                 adjustPos = new Vector3(basePos[0] + i / 20, basePos[1], basePos[2]);
-                smplRig.SetPose(translation, rotationQuat, i, identityRotEndJoints, adjustPos);
+                smplRig.SetPose(translation, rotationQuat, i, identityRotEndJoints, adjustPos, baseRot);
             }
             else
             {
-                smplRig.SetPose(translation, rotationQuat, i, identityRotEndJoints, basePos);
+                smplRig.SetPose(translation, rotationQuat, i, identityRotEndJoints, basePos, baseRot);
             }
         }
     }
